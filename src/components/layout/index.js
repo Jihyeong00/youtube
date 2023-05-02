@@ -6,7 +6,11 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="relative mt-14">
+        <div className="w-5/6 m-auto flex items-center justify-center">
+          <Outlet />
+        </div>
+      </div>
       <Footer />
     </>
   );

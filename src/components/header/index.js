@@ -1,7 +1,17 @@
+import MainLogo from './mainlogo';
+import UserProfile from './userprofile';
+
+const { default: SearchBar } = require('./searchbar');
 const Header = () => {
   return (
     <>
-      <div>헤더부분 입니다.</div>
+      <div className="fixed top-0 h-14 w-full">
+        <div className="flex justify-between p-2 ">
+          <MainLogo props={{ width: '97px', height: '20px' }} />
+          <SearchBar />
+          <UserProfile />
+        </div>
+      </div>
     </>
   );
 };
