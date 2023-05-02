@@ -6,8 +6,8 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <div className="relative mt-14">
-        <div className="w-5/6 m-auto flex items-center justify-center">
+      <div className="relative mt-14 z-10">
+        <div className="w-5/6 m-auto flex items-center justify-between">
           <Outlet />
         </div>
       </div>
