@@ -5,8 +5,8 @@ const { default: SearchBar } = require('./searchbar');
 const Header = () => {
   return (
     <>
-      <div className="fixed top-0 h-14 w-full z-50 bg-white">
-        <div className="flex justify-between p-2 ">
+      <div className="absolute top-0 h-16 w-full z-50 bg-white">
+        <div className="flex justify-between max-w-7xl p-2 m-auto border-b-4 border-gray-100">
           <MainLogo props={{ width: '97px', height: '20px' }} />
           <SearchBar />
           <UserProfile />

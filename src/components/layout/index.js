@@ -4,15 +4,15 @@ import Footer from '../footer';
 
 const Layout = () => {
   return (
-    <>
+    <div className="font-mono">
       <Header />
-      <div className="relative mt-14 z-10">
-        <div className="w-5/6 m-auto flex items-center justify-between">
+      <div className="relative mt-16 pt-2 z-10">
+        <div className="max-w-7xl m-auto">
           <Outlet />
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

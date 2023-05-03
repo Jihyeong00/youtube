@@ -3,7 +3,9 @@ import { RouterProvider } from 'react-router-dom';
 import router from './router/routing';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  refetchOnMount: false,
+});
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

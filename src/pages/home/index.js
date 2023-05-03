@@ -1,26 +1,13 @@
-import { useQuery } from 'react-query';
-import Thumbnails from '../../components/thumbnails';
+import Thumbnail from './Thumnail';
 
 const MainPage = () => {
-    const { data: videos } = useQuery(
-        ['relatedVideos'],
-        async () => {
-            console.log('fetching...');
-            return await fetch(`data/dummy/popularvideo.json`)
-                .then((res) => res.json())
-                .then((res) => res.items);
-        },
-        { staleTime: 1000 * 60 * 50 }
-    );
-    return (
-        <>
-            <div id="contents" className="flex flex-wrap justify-between">
-                {videos.map((data) => {
-                    return <Thumbnails key={data.id.videoId} props={data} />;
-                })}
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div id="contents" className="flex flex-wrap justify-between">
+        <Thumbnail />
+      </div>
+    </>
+  );
 };
 
 export default MainPage;
