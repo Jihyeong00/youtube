@@ -10,7 +10,7 @@ const SearchPage = () => {
     ['relatedVideos'],
     async () => {
       console.log('fetching...');
-      return await fetch(`data/dummy/keyword.json.json`)
+      return await fetch(`data/dummy/keyword.json`)
         .then((res) => res.json())
         .then((res) => res.items);
     },

@@ -37,7 +37,7 @@ const SearchBar = () => {
           id="searchbar"
           type="text"
           placeholder="검색"
-          className="font-sans text-xls outline-none w-full text-ellipsis "
+          className="font-sans text-xls outline-none w-full text-ellipsis bg-white "
         />
         {isset && (
           <button type="button" onClick={textResetHandling}>
