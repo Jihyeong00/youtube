@@ -1,17 +1,11 @@
-import { useEffect, useState } from 'react';
 import Thumbnail from '../../../../components/thumbnails';
 import { v4 as uuid } from 'uuid';
-import axios from 'axios';
+import { usePopularVideos } from '../../../../hook/queries/get-video-data';
 const Thumbnails = () => {
-  const [videos, setVideos]= useState([]);
-
-  useEffect(()=> {
-    axios.get('data/dummy/popularvideo.json').then((res)=> setVideos(res.data.items)).catch((err)=> console.error(err))
-  },[])
-  
+  const videos = usePopularVideos();
   return (
     <>
-      {videos.map((data) => {
+      {videos.mainList.data.items.map((data) => {
         return <Thumbnail key={uuid()} props={data} />;
       })}
     </>
