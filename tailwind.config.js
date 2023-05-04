@@ -11,6 +11,7 @@ module.exports = {
         '1//3': 'calc(33% - 1em)',
         '1//4': 'calc(25% - 1em)',
         'full-360': 'calc(100% - 360px)',
+        'full-40': 'calc(100% - 40px)',
         360: '360px',
       },
       height: {

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Comment from './components/Commnents';
 
 const WatchPage = () => {
   const params = useParams();
@@ -26,9 +27,10 @@ const WatchPage = () => {
           type="text/html"
           width="100%"
           height="640"
-          src={`http://www.youtube.com/embed/${videoId}`}
+          src={`http://www.youtube.com/embed/${videoId}/?autoplay=1`}
           frameborder="0"
         ></iframe>
+        <Comment />
       </div>
       <div className="w-1/4 ml-3">
         <ul>
