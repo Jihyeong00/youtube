@@ -4,7 +4,7 @@ const SearchVideoList = ({ props }) => {
   return (
     <>
       <li className="list-none ">
-        <Link to={`/watch/${props.id}`}>
+        <Link to={`/watch/${props.id.videoId}`}>
           <div className="rounded-xl  mt-4 flex">
             <div className="w-360 h-200 mr-6">
               <img

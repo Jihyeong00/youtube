@@ -1,22 +1,21 @@
-import { useQuery } from 'react-query';
-import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const WatchPage = () => {
   const params = useParams();
   const videoId = params.videoId;
+  const [videos, setVideos] = useState([]);
+  const navigate = useNavigate();
 
-  const { data: videos } = useQuery(
-    ['relatedVideos'],
-    async () => {
-      console.log('fetching...');
-      return await fetch(`data/dummy/relatedvideo.json`)
-        .then((res) => res.json())
-        .then((res) => res.items);
-    },
-    { staleTime: 1000 * 60 * 50 }
-  );
+  useEffect(() => {
+    axios
+      .get('/data/dummy/relatedvideo.json')
+      .then((res) => setVideos(res.data.items))
+      .catch((err) => console.error(err));
+  }, []);
 
-  console.log(videos);
+  console.log(videoId);
 
   return (
     <div className="flex">
@@ -36,19 +35,23 @@ const WatchPage = () => {
           {videos.map((video) => {
             return (
               <li>
-                <Link to={`/watch/${video.id}`}>
-                  <div className="mb-2 flex">
-                    <img
-                      src={video.snippet.thumbnails.default.url}
-                      alt={video.snippet.title}
-                      className="mr-2"
-                    />
-                    <div className="line-clamp-2 text-ellipsis ">
-                      <div className="line-clamp-2 font-bold">{video.snippet.title}</div>
-                      <div>{video.snippet.channelTitle}</div>
-                    </div>
+                <div
+                  onClick={() => {
+                    navigate(`/watch/${video.id.videoId}`);
+                    window.scrollTo(0, 0);
+                  }}
+                  className="mb-2 flex cursor-pointer"
+                >
+                  <img
+                    src={video.snippet.thumbnails.default.url}
+                    alt={video.snippet.title}
+                    className="mr-2"
+                  />
+                  <div className="line-clamp-2 text-ellipsis ">
+                    <div className="line-clamp-2 font-bold">{video.snippet.title}</div>
+                    <div>{video.snippet.channelTitle}</div>
                   </div>
-                </Link>
+                </div>
               </li>
             );
           })}

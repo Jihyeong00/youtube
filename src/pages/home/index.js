@@ -1,4 +1,4 @@
-import Thumbnail from './Thumnail';
+import Thumbnail from './Thumnail/components/Thumbnails';
 
 const MainPage = () => {
   return (

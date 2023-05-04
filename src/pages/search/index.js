@@ -1,21 +1,20 @@
-import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import SearchVideoList from './videoList';
+import SearchVideoList from './components/videoList/SearchVideoList.jsx';
 import { v4 as uuid } from 'uuid';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const SearchPage = () => {
   const params = useParams();
   const keyword = params.searchString;
-  const { data: videos } = useQuery(
-    ['relatedVideos'],
-    async () => {
-      console.log('fetching...');
-      return await fetch(`data/dummy/keyword.json`)
-        .then((res) => res.json())
-        .then((res) => res.items);
-    },
-    { staleTime: 1000 * 60 * 50 }
-  );
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('/data/dummy/keyword.json')
+      .then((res) => setVideos(res.data.items))
+      .catch((err) => console.error(err));
+  }, []);
   console.log(videos);
   return (
     <>
