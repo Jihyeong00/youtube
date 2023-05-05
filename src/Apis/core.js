@@ -7,6 +7,5 @@ export const Axios = axios.create({
   params: {
     part: snippet,
     key: KEY,
-    language: 'en-US',
   },
 });

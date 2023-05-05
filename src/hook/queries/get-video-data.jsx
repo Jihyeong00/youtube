@@ -4,18 +4,18 @@ import { queryConfig } from "./@config"
 import {QUERY_KEY} from '../../consts/queryKey'
 
 export const useVideoSearch = (keyword) => {
-    const {data : searchVideos} = useQuery(
+    const {data : searchVideos, isLoading} = useQuery(
         [QUERY_KEY.SEARCH_VIDEO], () => YoutubeAPI.getVideoSearch(keyword),queryConfig,
     )
-    return {searchVideos};
+    return {searchVideos, isLoading};
 }
 
 
 export const useVideoById = (videoId) => {
-    const {data : detailVideo} = useQuery(
+    const {data : detailVideo, isLoading} = useQuery(
         [QUERY_KEY.GET_VIDEO_INFO], ()=> YoutubeAPI.getVideoById(videoId),queryConfig,
     )
-    return {detailVideo}
+    return {detailVideo, isLoading}
 }
 
 
@@ -28,16 +28,16 @@ export const useChannelInfo = (channelId) => {
     }
     
     export const useVideoComments = (videoId) => {
-        const {data : videoComments} = useQuery(
+        const {data : videoComments, isLoading} = useQuery(
             [QUERY_KEY.GET_COMMENT_INFO], ()=> YoutubeAPI.getVideoComments(videoId),queryConfig,
         )
-        return {videoComments}
+        return {videoComments, isLoading}
     }
 
 export const usePopularVideos = () => {
-    const {data : mainList} = useQuery(
+    const {data : mainList, isError, isLoading, isLoadingError} = useQuery(
         [QUERY_KEY.GET_POPULAR_VIDEO_LIST], ()=> YoutubeAPI.getPopularVideos(),queryConfig,
     )
-    return {mainList}
+    return {mainList,isLoading}
 }
 

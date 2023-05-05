@@ -6,14 +6,13 @@ import { useVideoSearch } from '../../hook/queries/get-video-data.jsx';
 const SearchPage = () => {
   const params = useParams();
   const keyword = params.searchString;
-  const videos = useVideoSearch(keyword);
+  const { searchVideos, isLoading } = useVideoSearch(keyword);
   return (
     <>
       <div>{keyword}검색 결과 페이지입니다.</div>
       <div>
-        {videos.searchVideos.data.items.map((video) => (
-          <SearchVideoList key={uuid()} props={video} />
-        ))}
+        {!isLoading &&
+          searchVideos.data.items.map((video) => <SearchVideoList key={uuid()} props={video} />)}
       </div>
     </>
   );

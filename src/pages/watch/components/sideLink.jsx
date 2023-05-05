@@ -1,32 +1,30 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const SideLinkVideo = (video) => {
+const SideLinkVideo = ({props}) => {
+  const navigate = useNavigate()
     return(
-    <>{
-      video.map((video)=>(
+    <>
 
         <li >
-    <div
-      onClick={() => {
-        Navigate(`/watch/${video.id.videoId}`);
-        window.scrollTo(0, 0);
-      }}
-      className="mb-2 flex cursor-pointer"
-      >
-      <img
-        src={video.snippet.thumbnails.default.url}
-        alt={video.snippet.title}
-        className="mr-2"
-        />
-      <div className="line-clamp-2 text-ellipsis ">
-        <div className="line-clamp-2 font-bold">{video.snippet.title}</div>
-        <div>{video.snippet.channelTitle}</div>
-      </div>
-    </div>
-  </li>
-        ))
-      }
-        </>
+          <div
+            onClick={() => {
+              navigate(`/watch/${props.id.videoId}`);
+              window.scrollTo(0, 0);
+            }}
+            className="mb-2 flex cursor-pointer"
+            >
+            <img
+              src={props.snippet.thumbnails.default.url}
+              alt={props.snippet.title}
+              className="mr-2"
+              />
+            <div className="line-clamp-2 text-ellipsis ">
+              <div className="line-clamp-2 font-bold">{props.snippet.title}</div>
+              <div>{props.snippet.channelTitle}</div>
+            </div>
+          </div>
+           </li>
+    </>
   )
 }
 

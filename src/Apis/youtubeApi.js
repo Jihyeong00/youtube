@@ -13,7 +13,7 @@ const YoutubeAPI = {
     return Axios.get(SEARCH_PATH, {
       params: {
         maxResults: MAX_RESULT,
-        keyword: keyword,
+        q: keyword,
       },
     });
   },
@@ -35,6 +35,7 @@ const YoutubeAPI = {
       },
     });
   },
+
   getPopularVideos() {
     console.log('fetch...');
     return Axios.get(VIDEOS_PATH, {

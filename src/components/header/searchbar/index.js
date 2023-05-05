@@ -1,16 +1,20 @@
 import { useRef, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { TfiClose } from 'react-icons/tfi';
+import { useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { QUERY_KEY } from '../../../consts/queryKey';
 const SearchBar = () => {
   const [isset, setIsset] = useState(false);
   const inputText = useRef(null);
   const navigate = useNavigate();
+  const client = useQueryClient();
   const searchHandling = (e) => {
     e.preventDefault();
 
     if (inputText.current.value.trim().length !== 0) {
       navigate(`/search/${inputText.current.value}`);
+      client.invalidateQueries(QUERY_KEY.SEARCH_VIDEO, false);
     }
   };
   const textHandling = (e) => {

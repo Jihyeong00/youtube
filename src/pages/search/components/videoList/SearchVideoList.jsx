@@ -14,7 +14,7 @@ const SearchVideoList = ({ props }) => {
               />
             </div>
             <div className="w-full-360 text-xs overflow-hidden text-ellipsis text-hi whitespace-nowrap">
-              <div className="font-bold text-lg ">{props.snippet.title}</div>
+              <div className="font-bold text-lg ">{props.snippet.description}</div>
               <div className="text-zinc-400">
                 <span className="after:content-['•'] after:m-0 after:text-xs">조회수</span>
                 <span>생성기간</span>
