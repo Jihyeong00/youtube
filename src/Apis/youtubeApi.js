@@ -13,7 +13,7 @@ const YoutubeAPI = {
   getVideoSearch(keyword) {
     return Axios.get(SEARCH_PATH, {
       params: {
-        part: getGreatNumber,
+        part: snippet,
         maxResults: MAX_RESULT,
         q: keyword,
       },

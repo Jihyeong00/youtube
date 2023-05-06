@@ -26,13 +26,11 @@ const Thumbnail = ({ props }) => {
     printDate = thisTime.getSeconds() - publishedAt.getSeconds() + '초 전';
   }
 
-  console.log(printDate);
-
   return (
     <div className="w-1//4">
       <Link to={`/watch/${props.id}`}>
         <img
-          className="rounded-2xl"
+          className="rounded-md mt-6 md"
           src={data.snippet.thumbnails.medium.url}
           alt={data.snippet.title}
         />

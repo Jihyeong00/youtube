@@ -4,7 +4,7 @@ import Footer from '../footer';
 
 const Layout = () => {
   return (
-    <div className="font-mono">
+    <div className="font-sans">
       <Header />
       <div className="relative mt-16 pt-2 z-10">
         <div className="max-w-7xl m-auto">
