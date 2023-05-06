@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const SearchVideoList = ({ props }) => {
+    console.log(props)
     return (
         <>
             <li className="list-none ">

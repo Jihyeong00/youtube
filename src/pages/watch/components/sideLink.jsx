@@ -16,11 +16,11 @@ const SideLinkVideo = ({props}) => {
             <img
               src={props.snippet.thumbnails.default.url}
               alt={props.snippet.title}
-              className="mr-2"
+              className="mr-2 h-20 w-auto "
               />
             <div className="line-clamp-2 text-ellipsis ">
-              <div className="line-clamp-2 font-bold">{props.snippet.title}</div>
-              <div>{props.snippet.channelTitle}</div>
+              <div className="line-clamp-2 font-bold text-sm">{props.snippet.title}</div>
+              <div className="text-xs">{props.snippet.channelTitle}</div>
             </div>
           </div>
            </li>

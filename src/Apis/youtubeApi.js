@@ -7,11 +7,13 @@ const COMMENT_PATH = '/commentThreads';
 const MAX_RESULT = 25;
 const video = 'video';
 const mostPopular = 'mostPopular';
-
+const snippet = 'snippet';
+const getGreatNumber = 'snippet,contentDetails,statistics';
 const YoutubeAPI = {
   getVideoSearch(keyword) {
     return Axios.get(SEARCH_PATH, {
       params: {
+        part: getGreatNumber,
         maxResults: MAX_RESULT,
         q: keyword,
       },
@@ -21,6 +23,7 @@ const YoutubeAPI = {
   getVideoById(videoId) {
     return Axios.get(SEARCH_PATH, {
       params: {
+        part: snippet,
         type: video,
         maxResults: MAX_RESULT,
         relatedToVideoId: videoId,
@@ -31,6 +34,7 @@ const YoutubeAPI = {
   getVideoComments(videoId) {
     return Axios.get(COMMENT_PATH, {
       params: {
+        part: snippet,
         videoId: videoId,
       },
     });
@@ -40,6 +44,7 @@ const YoutubeAPI = {
     console.log('fetch...');
     return Axios.get(VIDEOS_PATH, {
       params: {
+        part: getGreatNumber,
         chart: mostPopular,
         maxResults: MAX_RESULT,
       },
@@ -48,6 +53,7 @@ const YoutubeAPI = {
   getChannelInfo(channelId) {
     return Axios.get(CHANNELS_PATH, {
       params: {
+        part: snippet,
         id: channelId,
       },
     });

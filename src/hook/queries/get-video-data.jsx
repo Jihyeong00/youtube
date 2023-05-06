@@ -20,7 +20,7 @@ export const useVideoSearch = (keyword) => {
 
 export const useVideoById = (videoId) => {
     const { data: detailVideo, isLoading } = useQuery(
-        [QUERY_KEY.GET_VIDEO_INFO],
+        [QUERY_KEY.GET_VIDEO_INFO, videoId],
         () => YoutubeAPI.getVideoById(videoId),
         queryConfig
     );
@@ -38,7 +38,7 @@ export const useChannelInfo = (channelId) => {
 
 export const useVideoComments = (videoId) => {
     const { data: videoComments, isLoading } = useQuery(
-        [QUERY_KEY.GET_COMMENT_INFO],
+        [QUERY_KEY.GET_COMMENT_INFO, videoId],
         () => YoutubeAPI.getVideoComments(videoId),
         queryConfig
     );
