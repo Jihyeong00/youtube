@@ -10,9 +10,6 @@ export const useVideoSearch = (keyword) => {
         {
             ...queryConfig,
             cacheTime: 0,
-            onSuccess: (data) => {
-                console.log(data, '1');
-            },
         }
     );
     return { searchVideos, isLoading };

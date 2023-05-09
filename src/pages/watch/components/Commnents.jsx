@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useVideoComments } from '../../../hook/queries/get-video-data';
 import { v4 } from 'uuid';
+import { formatAgo } from '../../../util/date';
 
 const Comment = () => {
     const params = useParams();
@@ -24,7 +25,7 @@ const Comment = () => {
                                 <div className="w-full overflow-hidden text-ellipsis text-hi relative">
                                     <div className="text-sm font-bold">{name}</div>
                                     <div>{comments}</div>
-                                    <div className="pt-1">{commentDate}</div>
+                                    <div className="pt-1">{formatAgo(commentDate, 'ko')}</div>
                                 </div>
                             </div>
                         </li>

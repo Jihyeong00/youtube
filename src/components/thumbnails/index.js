@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { formatAgo } from '../../util/date.js';
 
 const Thumbnail = ({ props }) => {
   const data = props;
@@ -7,27 +8,9 @@ const Thumbnail = ({ props }) => {
   if (countView > 10000) {
     countView = Math.floor(countView / 10000) + '만회';
   }
-  // 날짜 계산
-  const publishedAt = new Date(props.snippet.publishedAt);
-  const thisTime = new Date();
-  let printDate = '';
-
-  if (publishedAt.getFullYear() !== thisTime.getFullYear()) {
-    printDate = thisTime.getFullYear() - publishedAt.getFullYear() + '년 전';
-  } else if (publishedAt.getMonth() !== thisTime.getMonth()) {
-    printDate = thisTime.getMonth() - publishedAt.getMonth() + '달 전';
-  } else if (publishedAt.getDay() !== thisTime.getDay()) {
-    printDate = thisTime.getDate() - publishedAt.getDate() + '일 전';
-  } else if (publishedAt.getHours() !== thisTime.getHours()) {
-    printDate = thisTime.getHours() - publishedAt.getHours() + '시간 전';
-  } else if (publishedAt.getMinutes() !== thisTime.getMinutes()) {
-    printDate = thisTime.getMinutes() - publishedAt.getMinutes() + '분 전';
-  } else {
-    printDate = thisTime.getSeconds() - publishedAt.getSeconds() + '초 전';
-  }
 
   return (
-    <div className="w-1//4">
+    <div className="">
       <Link to={`/watch/${props.id}`}>
         <img
           className="rounded-md mt-6 md"
@@ -45,7 +28,7 @@ const Thumbnail = ({ props }) => {
           </div>
           <div>
             <span className="text-xs text-gray-400">
-              조회수 {countView} • {printDate}
+              조회수 {countView} • {formatAgo(data.snippet.publishedAt, 'ko')}
             </span>
           </div>
         </div>

@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
     <>
-      <div className="relative bottom-0 w-full">
+      <div className="relative mt-48 bottom-0 w-full">
         <div className="flex justify-center items-center">
-          <div>푸터부분 입니다. 아마도 무한 스크롤</div>
+          <div>마지막</div>
         </div>
       </div>
     </>

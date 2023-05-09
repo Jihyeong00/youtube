@@ -12,8 +12,7 @@ const SearchPage = () => {
     <>
       <div>{keyword}검색 결과 페이지입니다.</div>
       <div>
-        {!isLoading &&
-          searchVideos.data.items.map((video) => <SearchVideoList key={uuid()} props={video} />)}
+        {!isLoading && searchVideos.map((video) => <SearchVideoList key={uuid()} props={video} />)}
       </div>
     </>
   );
