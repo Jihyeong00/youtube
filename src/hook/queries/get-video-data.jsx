@@ -7,10 +7,6 @@ export const useVideoSearch = (keyword) => {
     const { data: searchVideos, isLoading } = useQuery(
         [QUERY_KEY.SEARCH_VIDEO, keyword],
         () => YoutubeAPI.getVideoSearch(keyword),
-        {
-            ...queryConfig,
-            cacheTime: 0,
-        }
     );
     return { searchVideos, isLoading };
 };
@@ -42,11 +38,11 @@ export const useVideoComments = (videoId) => {
     return { videoComments, isLoading };
 };
 
-export const usePopularVideos = () => {
-    const { data: mainList, isLoading } = useQuery(
-        [QUERY_KEY.GET_POPULAR_VIDEO_LIST],
-        () => YoutubeAPI.getPopularVideos(),
-        queryConfig
-    );
-    return { mainList, isLoading };
-};
+// export const usePopularVideos = () => {
+//     const { data: mainList, isLoading } = useQuery(
+//         [QUERY_KEY.GET_POPULAR_VIDEO_LIST],
+//         () => YoutubeAPI.getPopularVideos(),
+//         queryConfig
+//     );
+//     return { mainList, isLoading };
+// };
