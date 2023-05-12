@@ -18,7 +18,7 @@ const YoutubeAPI = {
         q: keyword,
         pageToken: nextPageToken,
       },
-    }).then((res) => res.data.items);
+    });
   },
 
   async getVideoById(videoId) {

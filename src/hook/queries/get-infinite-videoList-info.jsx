@@ -5,8 +5,9 @@ import { useInfiniteQuery } from "react-query";
 export const LoadInfinitePopularVideos = () =>{
     const res = useInfiniteQuery(
         [QUERY_KEY.GET_POPULAR_VIDEO_LIST],
-        ({pageParam = 0}) => YoutubeAPI.getPopularVideos(pageParam),
+        ({pageParam = ''}) => YoutubeAPI.getPopularVideos(pageParam),
         {
+            // 반환값 확인할 것
             getNextPageParam: (lastPage) => {
 					return lastPage.data.nextPageToken;
 			},
@@ -18,8 +19,9 @@ export const LoadInfinitePopularVideos = () =>{
 export const LoadInfiniteSearchVideos = (keyword) => {
     const res = useInfiniteQuery(
         [QUERY_KEY.SEARCH_VIDEO, keyword],
-        ({pageParam = 0}) => YoutubeAPI.getVideoSearch(keyword,pageParam),{
+        ({pageParam = ''}) => YoutubeAPI.getVideoSearch(keyword, pageParam),{
             getNextPageParam: (lastPage) => {
+                console.log(lastPage.data.nextPageToken)
                 return lastPage.data.nextPageToken
             }
         }

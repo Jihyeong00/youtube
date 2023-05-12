@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 const SearchPage = () => {
   const params = useParams();
   const keyword = params.searchString;
-  const { searchVideos, isLoading } = useVideoSearch(keyword);
 
   const res = LoadInfiniteSearchVideos(keyword);
 
@@ -29,12 +28,13 @@ const SearchPage = () => {
     return <div>Error...</div>;
   }
   if (res.data) {
+    console.log(res.data);
     let list = [...res.data.pages.map((res) => res.data.items)].flat(1);
 
     return (
       <>
         <div>{keyword}검색 결과 페이지입니다.</div>
-        <div>{!list && list.map((video) => <SearchVideoList key={uuid()} props={video} />)}</div>
+        <div>{list && list.map((video) => <SearchVideoList key={uuid()} props={video} />)}</div>
         <div ref={ref}></div>
       </>
     );
