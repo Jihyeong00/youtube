@@ -52,11 +52,11 @@ const YoutubeAPI = {
     });
   },
 
-  async getChannelInfo(channelId) {
+  async getChannelInfo(id) {
     return Axios.get(CHANNELS_PATH, {
       params: {
         part: SNIPPET,
-        id: channelId,
+        id,
       },
     });
   },

@@ -28,7 +28,6 @@ const SearchPage = () => {
     return <div>Error...</div>;
   }
   if (res.data) {
-    console.log(res.data);
     let list = [...res.data.pages.map((res) => res.data.items)].flat(1);
 
     return (

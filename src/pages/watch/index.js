@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import Comment from './components/Commnents';
-import { useVideoById } from '../../hook/queries/get-video-data';
+import { useChannelInfo, useVideoById } from '../../hook/queries/get-video-data';
 import SideLinkVideo from './components/sideLink';
 import { v4 } from 'uuid';
 
@@ -22,7 +22,6 @@ const WatchPage = () => {
             src={`http://www.youtube.com/embed/${videoId}/?autoplay=1`}
             frameBorder="0"
           ></iframe>
-          <div></div>
           <Comment />
         </div>
         <div className="w-1/4 ml-3">

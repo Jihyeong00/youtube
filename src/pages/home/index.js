@@ -22,7 +22,6 @@ const MainPage = () => {
   }
   if (res.data) {
     let list = [...res.data.pages.map((res) => res.data.items)].flat(1);
-
     return (
       <>
         <div
