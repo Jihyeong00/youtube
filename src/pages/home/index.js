@@ -1,7 +1,7 @@
 import Thumbnail from '../../components/thumbnails/index';
 import { v4 } from 'uuid';
 import { useInView } from 'react-intersection-observer';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { LoadInfinitePopularVideos } from '../../hook/queries/get-infinite-videoList-info';
 const MainPage = () => {
   const res = LoadInfinitePopularVideos();
@@ -11,6 +11,7 @@ const MainPage = () => {
     if (!inView) {
       return;
     }
+
     res.fetchNextPage();
   }, [inView]);
 
