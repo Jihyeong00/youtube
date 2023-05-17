@@ -1,9 +1,7 @@
 import { useRef, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { TfiClose } from 'react-icons/tfi';
-import { useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { QUERY_KEY } from '../../../Const/queryKey';
 const SearchBar = () => {
   const [isset, setIsset] = useState(false);
   const inputText = useRef(null);
