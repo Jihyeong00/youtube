@@ -17,6 +17,7 @@ const YoutubeAPI = {
         maxResults: MAX_RESULT,
         q: keyword,
         pageToken: nextPageToken,
+        type: 'video',
       },
     });
   },
